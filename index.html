@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Loquens INPact — Club d’éloquence de Bordeaux INP. Entraînements, ateliers avec un pro, concours d’éloquence." />
+  <title>Loquens INPact — Éloquence Bordeaux INP</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a33;
+      --text:#eaf0ff;
+      --muted:#b9c6e6;
+      --line:rgba(234,240,255,.12);
+      --accent:#6ea8ff;
+      --accent2:#9be7ff;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 10% 0%, rgba(110,168,255,.25), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(155,231,255,.18), transparent 55%),
+        radial-gradient(800px 600px at 50% 100%, rgba(110,168,255,.12), transparent 60%),
+        var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 18px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.55);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:36px;height:36px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(110,168,255,1), rgba(155,231,255,1));
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 40%);
+      transform: rotate(20deg);
+    }
+    .brand small{display:block;color:var(--muted);font-weight:600;margin-top:-2px}
+
+    nav ul{list-style:none;display:flex;gap:16px;margin:0;padding:0;align-items:center}
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:650;
+      padding:10px 10px;
+      border-radius:12px;
+      transition: .18s ease;
+    }
+    nav a:hover{color:var(--text); background: rgba(234,240,255,.07)}
+    .cta{
+      display:flex; gap:10px; align-items:center;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(234,240,255,.06);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:750;
+      transition: .18s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(234,240,255,.10)}
+    .btn.primary{
+      border:1px solid rgba(110,168,255,.45);
+      background: linear-gradient(135deg, rgba(110,168,255,.25), rgba(155,231,255,.18));
+    }
+    .btn.primary:hover{background: linear-gradient(135deg, rgba(110,168,255,.34), rgba(155,231,255,.24))}
+    .menu-btn{display:none}
+
+    /* Hero */
+    .hero{padding:46px 0 20px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      background: rgba(15,26,51,.70);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:26px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(900px 250px at 0% 0%, rgba(110,168,255,.25), transparent 65%);
+      pointer-events:none;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(234,240,255,.06);
+      color:var(--muted);
+      font-weight:700;
+      position:relative;
+      z-index:1;
+    }
+    h1{
+      margin:12px 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height:1.1;
+      letter-spacing:-.6px;
+      position:relative;
+      z-index:1;
+    }
+    .subtitle{
+      color:var(--muted);
+      font-size: 16px;
+      margin:0 0 18px;
+      max-width: 62ch;
+      position:relative;
+      z-index:1;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; position:relative; z-index:1}
+    .kpis{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+    }
+    .kpi{
+      border:1px solid var(--line);
+      background: rgba(15,26,51,.70);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .kpi strong{display:block;font-size:18px}
+    .kpi span{display:block;color:var(--muted);margin-top:4px}
+
+    /* Sections */
+    section{padding:34px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin-bottom:14px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 24px;
+      letter-spacing:-.3px;
+    }
+    .section-title p{margin:0;color:var(--muted)}
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(15,26,51,.60);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{margin:0 0 8px;font-size:18px}
+    .muted{color:var(--muted)}
+    .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(234,240,255,.05);
+      color:var(--muted);
+      font-weight:700;
+      margin:6px 6px 0 0;
+    }
+    .divider{height:1px;background:var(--line);margin:18px 0}
+
+    /* Footer */
+    footer{
+      padding:24px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      nav ul{display:none}
+      .menu-btn{display:inline-flex}
+      nav.open ul{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:6px;
+        padding:10px 0 14px;
+      }
+      header{position:sticky}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Aller en haut de page">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            Loquens INPact
+            <small>Éloquence Bordeaux INP</small>
+          </div>
+        </a>
+
+        <nav id="nav">
+          <button class="btn menu-btn" id="menuBtn" type="button" aria-label="Ouvrir le menu">
+            ☰ Menu
+          </button>
+          <ul>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#activites">Activités</a></li>
+            <li><a href="#evenements">Événements</a></li>
+            <li><a href="#bureau">Bureau</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a class="btn primary" href="#contact">Rejoindre / Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="badge">🎙️ Club d’éloquence • Bordeaux INP</div>
+            <h1>Prendre la parole avec impact.<br/>S’entraîner. Progresser. Convaincre.</h1>
+            <p class="subtitle">
+              <strong>Loquens INPact</strong> est le club d’éloquence de Bordeaux INP.
+              On t’aide à gagner en aisance à l’oral grâce à des entraînements réguliers,
+              des formats ludiques et des événements marquants.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#evenements">Voir les prochains événements</a>
+              <a class="btn" href="mailto:loquens.bordeauxinp@gmail.com?subject=Je%20souhaite%20rejoindre%20Loquens%20INPact">
+                Écrire au club
+              </a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div>
+              <span class="pill">🧠 Structure & argumentation</span>
+              <span class="pill">🎭 Impro & présence</span>
+              <span class="pill">🗣️ Voix & diction</span>
+              <span class="pill">🤝 Bienveillance & feedback</span>
+            </div>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi">
+              <strong>3 séances avec un pro</strong>
+              <span>En décembre & janvier (entraînement accompagné)</span>
+            </div>
+            <div class="kpi">
+              <strong>Concours d’éloquence</strong>
+              <span>Grand Amphi — ENSEIRB • <b>22 janvier 2026</b></span>
+            </div>
+            <div class="kpi">
+              <strong>Ouvert à tous niveaux</strong>
+              <span>Débutants comme confirmés : tu progresses à ton rythme.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apropos">
+      <div class="container">
+        <div class="section-title">
+          <h2>À propos</h2>
+          <p>Notre mission : te rendre plus à l’aise et plus convaincant à l’oral.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Pourquoi Loquens INPact ?</h3>
+            <p class="muted">
+              Parce que parler en public, ça se travaille. Le club te permet de pratiquer régulièrement,
+              de recevoir des retours utiles, et de progresser concrètement (sans pression).
+            </p>
+            <ul class="list">
+              <li>Construire un discours clair et percutant</li>
+              <li>Gérer le stress et gagner en confiance</li>
+              <li>Améliorer diction, posture, rythme, regard</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>À qui ça s’adresse ?</h3>
+            <p class="muted">
+              À tous les étudiants Bordeaux INP (et curieux motivés), quel que soit ton niveau.
+              Timide ? Déjà à l’aise ? Tu trouveras un format adapté.
+            </p>
+            <ul class="list">
+              <li>Préparation d’oraux, stages, entretiens</li>
+              <li>Développement personnel & leadership</li>
+              <li>Goût du débat et des joutes oratoires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activites">
+      <div class="container">
+        <div class="section-title">
+          <h2>Activités</h2>
+          <p>Des formats variés, du fun, et du progrès mesurable.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Entraînements</h3>
+            <p class="muted">
+              Exercices de prise de parole, structure, persuasion, storytelling, gestion du temps.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Joutes & débats</h3>
+            <p class="muted">
+              Thèmes imposés ou libres, formats courts/longs, avec feedback collectif.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Ateliers avec un pro</h3>
+            <p class="muted">
+              <strong>3 séances</strong> en <strong>décembre & janvier</strong> pour booster technique et présence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evenements">
+      <div class="container">
+        <div class="section-title">
+          <h2>Événements</h2>
+          <p>Ce qu’il ne faut pas rater cette saison.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>3 séances d’entraînement (avec un pro)</h3>
+            <p class="muted">
+              Programmées en <strong>décembre</strong> et <strong>janvier</strong>.  
+              <em>(Dates/horaires à préciser prochainement.)</em>
+            </p>
+            <ul class="list">
+              <li>Techniques d’oral & impact</li>
+              <li>Présence scénique & gestion du stress</li>
+              <li>Exercices + retours personnalisés</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Concours d’éloquence</h3>
+            <p class="muted">
+              <strong>22 janvier 2026</strong> — <strong>Grand Amphi</strong> de l’ENSEIRB.  
+              <em>(Horaires / modalités à venir.)</em>
+            </p>
+            <p class="muted">
+              Un événement phare pour performer, soutenir les participants, et vivre l’éloquence en grand.
+            </p>
+            <a class="btn primary" href="#contact">Participer / S’informer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bureau">
+      <div class="container">
+        <div class="section-title">
+          <h2>Bureau</h2>
+          <p>Contact direct et organisation du club.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Samy MAACH</h3>
+            <p class="muted"><strong>Président</strong></p>
+            <p class="muted">Les autres membres du bureau seront ajoutés prochainement.</p>
+          </div>
+
+          <div class="card">
+            <h3>Valeurs</h3>
+            <ul class="list">
+              <li>Bienveillance</li>
+              <li>Exigence progressive</li>
+              <li>Apprentissage par la pratique</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Réseaux</h3>
+            <p class="muted">
+              Suis l’actualité du club et les annonces des événements.
+            </p>
+            <a class="btn" href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">
+              LinkedIn — Loquens INPact
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Pour rejoindre, poser une question, ou proposer un partenariat.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Email</h3>
+            <p class="muted">
+              “Eloquence Bordeaux INP” — <a href="mailto:loquens.bordeauxinp@gmail.com">loquens.bordeauxinp@gmail.com</a>
+            </p>
+            <div class="divider"></div>
+            <p class="muted">
+              Astuce : mets dans ton message ton école/année, ton objectif (timidité, concours, entretien…),
+              et ta dispo.
+            </p>
+            <a class="btn primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Rejoindre%20Loquens%20INPact&body=Bonjour%2C%0A%0AJe%20souhaite%20rejoindre%20Loquens%20INPact.%0A-%20Nom%20%2F%20Pr%C3%A9nom%20%3A%0A-%20%C3%89cole%20%2F%20Ann%C3%A9e%20%3A%0A-%20Objectif%20%3A%0A-%20Disponibilit%C3%A9s%20%3A%0A%0AMerci%20!">
+              Envoyer un email pré-rempli
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>Formulaire (optionnel)</h3>
+            <p class="muted">
+              Tu peux ajouter ici un Google Form / Typeform plus tard.  
+              Pour l’instant, le contact email + LinkedIn suffit parfaitement.
+            </p>
+            <div class="divider"></div>
+            <p class="muted">
+              ✅ Simple à maintenir • ✅ Clair pour les visiteurs • ✅ Zéro backend
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="muted">
+        © <span id="year"></span> Loquens INPact — Éloquence Bordeaux INP •
+        <a href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">LinkedIn</a> •
+        <a href="mailto:loquens.bordeauxinp@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Année auto
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const nav = document.getElementById("nav");
+    const btn = document.getElementById("menuBtn");
+    if (btn) {
+      btn.addEventListener("click", () => nav.classList.toggle("open"));
+    }
+
+    // Fermer menu quand on clique un lien (mobile)
+    nav.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => nav.classList.remove("open"));
+    });
+  </script>
+</body>
+</html>
