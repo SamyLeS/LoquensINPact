@@ -45,12 +45,14 @@
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 0;
       gap:14px;
+      flex-wrap:wrap;
     }
     .brand{
       display:flex; align-items:center; gap:10px;
       text-decoration:none;
       font-weight:800;
       letter-spacing:.2px;
+      min-width: 220px;
     }
     .logo{
       width:36px;height:36px;border-radius:12px;
@@ -58,6 +60,7 @@
       box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
+      flex: 0 0 auto;
     }
     .logo:after{
       content:"";
@@ -65,13 +68,13 @@
       background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 40%);
       transform: rotate(20deg);
     }
-    .brand small{display:block;color:var(--muted);font-weight:600;margin-top:-2px}
+    .brand small{display:block;color:var(--muted);font-weight:650;margin-top:-2px}
 
-    nav ul{list-style:none;display:flex;gap:16px;margin:0;padding:0;align-items:center}
+    nav ul{list-style:none;display:flex;gap:10px;margin:0;padding:0;align-items:center;flex-wrap:wrap}
     nav a{
       text-decoration:none;
       color:var(--muted);
-      font-weight:650;
+      font-weight:700;
       padding:10px 10px;
       border-radius:12px;
       transition: .18s ease;
@@ -89,7 +92,7 @@
       background: rgba(234,240,255,.06);
       color:var(--text);
       text-decoration:none;
-      font-weight:750;
+      font-weight:780;
       transition: .18s ease;
       white-space:nowrap;
     }
@@ -99,10 +102,20 @@
       background: linear-gradient(135deg, rgba(110,168,255,.25), rgba(155,231,255,.18));
     }
     .btn.primary:hover{background: linear-gradient(135deg, rgba(110,168,255,.34), rgba(155,231,255,.24))}
+    .btn.ghost{
+      background: transparent;
+      border: 1px dashed rgba(234,240,255,.22);
+      color: var(--muted);
+    }
+    .btn.ghost:hover{
+      background: rgba(234,240,255,.05);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
     .menu-btn{display:none}
 
     /* Hero */
-    .hero{padding:46px 0 20px}
+    .hero{padding:46px 0 18px}
     .hero-grid{
       display:grid;
       grid-template-columns: 1.35fr .65fr;
@@ -131,10 +144,11 @@
       border:1px solid var(--line);
       background: rgba(234,240,255,.06);
       color:var(--muted);
-      font-weight:700;
+      font-weight:750;
       position:relative;
       z-index:1;
     }
+    .badge strong{color:var(--text)}
     h1{
       margin:12px 0 10px;
       font-size: clamp(28px, 4vw, 44px);
@@ -147,7 +161,7 @@
       color:var(--muted);
       font-size: 16px;
       margin:0 0 18px;
-      max-width: 62ch;
+      max-width: 66ch;
       position:relative;
       z-index:1;
     }
@@ -172,6 +186,7 @@
     .section-title{
       display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
       margin-bottom:14px;
+      flex-wrap:wrap;
     }
     .section-title h2{
       margin:0;
@@ -179,6 +194,11 @@
       letter-spacing:-.3px;
     }
     .section-title p{margin:0;color:var(--muted)}
+    .grid-4{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+    }
     .grid-3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -206,10 +226,45 @@
       border:1px solid var(--line);
       background: rgba(234,240,255,.05);
       color:var(--muted);
-      font-weight:700;
+      font-weight:750;
       margin:6px 6px 0 0;
     }
     .divider{height:1px;background:var(--line);margin:18px 0}
+
+    /* Callout */
+    .callout{
+      border: 1px solid rgba(110,168,255,.28);
+      background: linear-gradient(135deg, rgba(110,168,255,.14), rgba(155,231,255,.08));
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+    .callout strong{display:block;margin-bottom:6px}
+    .callout p{margin:0;color:var(--muted)}
+
+    /* Partners */
+    .partner-card{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height: 150px;
+    }
+    .partner-top{
+      display:flex; align-items:center; gap:12px;
+    }
+    .partner-logo{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(234,240,255,.06);
+      display:grid; place-items:center;
+      font-weight:900;
+      color: var(--muted);
+      flex: 0 0 auto;
+    }
+    .partner-meta strong{display:block}
+    .partner-meta span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+    .partner-desc{color:var(--muted);margin:0}
+    .partner-actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
 
     /* Footer */
     footer{
@@ -219,10 +274,14 @@
     }
 
     /* Responsive */
+    @media (max-width: 1100px){
+      .grid-4{grid-template-columns: repeat(2, 1fr)}
+    }
     @media (max-width: 920px){
       .hero-grid{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
+      .grid-4{grid-template-columns:1fr}
       nav ul{display:none}
       .menu-btn{display:inline-flex}
       nav.open ul{
@@ -233,6 +292,8 @@
         padding:10px 0 14px;
       }
       header{position:sticky}
+      .cta{width:100%; justify-content:flex-end}
+      .brand{min-width:auto}
     }
   </style>
 </head>
@@ -245,7 +306,7 @@
           <div class="logo" aria-hidden="true"></div>
           <div>
             Loquens INPact
-            <small>Éloquence Bordeaux INP</small>
+            <small>Éloquence Bordeaux INP • bientôt <strong>loquensinpact.fr</strong></small>
           </div>
         </a>
 
@@ -256,7 +317,8 @@
           <ul>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#activites">Activités</a></li>
-            <li><a href="#evenements">Événements</a></li>
+            <li><a href="#evenements">Événement</a></li>
+            <li><a href="#partenaires">Partenaires</a></li>
             <li><a href="#bureau">Bureau</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -277,7 +339,7 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-card">
-            <div class="badge">🎙️ Club d’éloquence • Bordeaux INP</div>
+            <div class="badge">🎙️ Club d’éloquence • <strong>Bordeaux INP</strong></div>
             <h1>Prendre la parole avec impact.<br/>S’entraîner. Progresser. Convaincre.</h1>
             <p class="subtitle">
               <strong>Loquens INPact</strong> est le club d’éloquence de Bordeaux INP.
@@ -286,10 +348,11 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn primary" href="#evenements">Voir les prochains événements</a>
+              <a class="btn primary" href="#evenements">Voir l’événement du 29 janvier</a>
               <a class="btn" href="mailto:loquens.bordeauxinp@gmail.com?subject=Je%20souhaite%20rejoindre%20Loquens%20INPact">
                 Écrire au club
               </a>
+              <a class="btn ghost" href="#partenaires">Devenir partenaire</a>
             </div>
 
             <div class="divider"></div>
@@ -308,12 +371,12 @@
               <span>En décembre & janvier (entraînement accompagné)</span>
             </div>
             <div class="kpi">
-              <strong>Concours d’éloquence</strong>
-              <span>Grand Amphi — ENSEIRB • <b>22 janvier 2026</b></span>
+              <strong>Grand événement public</strong>
+              <span><b>29 janvier 2026 • 16h</b> — Grand Amphi ENSEIRB-MATMECA</span>
             </div>
             <div class="kpi">
-              <strong>Ouvert à tous niveaux</strong>
-              <span>Débutants comme confirmés : tu progresses à ton rythme.</span>
+              <strong>Tout le monde est convié</strong>
+              <span>Entrée libre pour assister et soutenir les participants.</span>
             </div>
           </div>
         </div>
@@ -384,21 +447,29 @@
             </p>
           </div>
         </div>
+
+        <div style="margin-top:14px" class="callout">
+          <strong>Objectif : progrès concret</strong>
+          <p>
+            Tu parles (souvent), tu testes des formats, tu reçois des retours actionnables — et tu vois la différence.
+            Le niveau vient avec la régularité.
+          </p>
+        </div>
       </div>
     </section>
 
     <section id="evenements">
       <div class="container">
         <div class="section-title">
-          <h2>Événements</h2>
-          <p>Ce qu’il ne faut pas rater cette saison.</p>
+          <h2>Événement</h2>
+          <p>Un rendez-vous majeur de l’année — ouvert au public.</p>
         </div>
 
         <div class="grid-2">
           <div class="card">
-            <h3>3 séances d’entraînement (avec un pro)</h3>
+            <h3>Séances d’entraînement (avec un pro)</h3>
             <p class="muted">
-              Programmées en <strong>décembre</strong> et <strong>janvier</strong>.  
+              <strong>3 séances</strong> en <strong>décembre</strong> et <strong>janvier</strong>.  
               <em>(Dates/horaires à préciser prochainement.)</em>
             </p>
             <ul class="list">
@@ -406,19 +477,168 @@
               <li>Présence scénique & gestion du stress</li>
               <li>Exercices + retours personnalisés</li>
             </ul>
+            <div class="divider"></div>
+            <p class="muted">
+              Tu veux être informé dès que les dates sortent ? Envoie-nous un mail et on te mettra dans la boucle.
+            </p>
+            <a class="btn" href="mailto:loquens.bordeauxinp@gmail.com?subject=Dates%20des%20s%C3%A9ances%20avec%20un%20pro%20-%20Loquens%20INPact&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%AAtre%20inform%C3%A9(e)%20des%20dates%20des%203%20s%C3%A9ances%20avec%20un%20pro.%0A%0AMerci%20!">
+              Me tenir informé
+            </a>
           </div>
 
           <div class="card">
-            <h3>Concours d’éloquence</h3>
+            <h3>Grand événement d’éloquence</h3>
             <p class="muted">
-              <strong>22 janvier 2026</strong> — <strong>Grand Amphi</strong> de l’ENSEIRB.  
-              <em>(Horaires / modalités à venir.)</em>
+              <strong>Jeudi 29 janvier 2026</strong> — <strong>16h</strong>  
+              <br/>
+              <strong>Grand amphithéâtre</strong> — ENSEIRB-MATMECA
             </p>
+
+            <div class="divider"></div>
+
+            <div class="callout">
+              <strong>Tout le monde est convié</strong>
+              <p>
+                Étudiants, personnels, invités, curieux : venez assister, encourager et vivre l’éloquence en grand.
+              </p>
+            </div>
+
+            <div class="divider"></div>
+
             <p class="muted">
-              Un événement phare pour performer, soutenir les participants, et vivre l’éloquence en grand.
+              Au programme : prises de parole, joutes, moments forts, et une ambiance digne d’un vrai concours.
+              <em>(Détails + déroulé à venir.)</em>
             </p>
-            <a class="btn primary" href="#contact">Participer / S’informer</a>
+
+            <div class="hero-actions" style="margin-top:10px">
+              <a class="btn primary" href="#partenaires">Voir les partenaires</a>
+              <a class="btn" href="#contact">Participer / infos</a>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="partenaires">
+      <div class="container">
+        <div class="section-title">
+          <h2>Partenaires</h2>
+          <p>Entreprises, médias, acteurs locaux… merci pour votre soutien.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Pourquoi devenir partenaire ?</h3>
+            <p class="muted">
+              L’événement du <strong>29 janvier 2026 (16h)</strong> est une vitrine : prise de parole, talent étudiant,
+              transmission et impact. Un partenariat permet de soutenir le projet et de gagner en visibilité.
+            </p>
+            <ul class="list">
+              <li>Visibilité pendant l’événement (affichage, mentions, remerciements)</li>
+              <li>Image : soutien à la formation, à l’oral, au leadership étudiant</li>
+              <li>Possibilités : lots, sponsoring, présence, relais média</li>
+            </ul>
+            <div class="divider"></div>
+            <a class="btn primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Partenariat%20-%20Loquens%20INPact%20(29%20janvier%202026)&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%A9changer%20au%20sujet%20d%E2%80%99un%20partenariat%20pour%20l%E2%80%99%C3%A9v%C3%A9nement%20Loquens%20INPact%20du%2029%20janvier%202026%20%C3%A0%2016h%20(Grand%20Amphi%20ENSEIRB-MATMECA).%0A%0AOrganisation%20%3A%0A%0AType%20de%20partenariat%20envisag%C3%A9%20%3A%0A%0AMerci%20!">
+              Proposer un partenariat
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>Ils nous soutiennent</h3>
+            <p class="muted">
+              Cette section est prête : dès que tu as les noms/logos, tu remplaces les cartes ci-dessous.
+            </p>
+            <div class="divider"></div>
+            <div>
+              <span class="pill">🏢 Entreprises</span>
+              <span class="pill">📰 Médias</span>
+              <span class="pill">🤝 Institutions</span>
+              <span class="pill">🌍 Acteurs locaux</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="grid-4">
+          <!-- PARTENAIRE 1 -->
+          <div class="card partner-card">
+            <div class="partner-top">
+              <div class="partner-logo" title="Logo à ajouter">P1</div>
+              <div class="partner-meta">
+                <strong>Partenaire #1</strong>
+                <span>Entreprise / Média / Institution</span>
+              </div>
+            </div>
+            <p class="partner-desc">
+              Petite description (1 phrase). Exemple : “Soutien principal de l’événement”.
+            </p>
+            <div class="partner-actions">
+              <a class="btn" href="#" onclick="return false;">Site</a>
+              <a class="btn ghost" href="#" onclick="return false;">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- PARTENAIRE 2 -->
+          <div class="card partner-card">
+            <div class="partner-top">
+              <div class="partner-logo" title="Logo à ajouter">P2</div>
+              <div class="partner-meta">
+                <strong>Partenaire #2</strong>
+                <span>Entreprise / Média / Institution</span>
+              </div>
+            </div>
+            <p class="partner-desc">
+              Petite description (1 phrase). Exemple : “Relais média / couverture de l’événement”.
+            </p>
+            <div class="partner-actions">
+              <a class="btn" href="#" onclick="return false;">Site</a>
+              <a class="btn ghost" href="#" onclick="return false;">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- PARTENAIRE 3 -->
+          <div class="card partner-card">
+            <div class="partner-top">
+              <div class="partner-logo" title="Logo à ajouter">P3</div>
+              <div class="partner-meta">
+                <strong>Partenaire #3</strong>
+                <span>Entreprise / Média / Institution</span>
+              </div>
+            </div>
+            <p class="partner-desc">
+              Petite description (1 phrase). Exemple : “Dotations / lots pour les participants”.
+            </p>
+            <div class="partner-actions">
+              <a class="btn" href="#" onclick="return false;">Site</a>
+              <a class="btn ghost" href="#" onclick="return false;">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- PARTENAIRE 4 -->
+          <div class="card partner-card">
+            <div class="partner-top">
+              <div class="partner-logo" title="Logo à ajouter">P4</div>
+              <div class="partner-meta">
+                <strong>Partenaire #4</strong>
+                <span>Entreprise / Média / Institution</span>
+              </div>
+            </div>
+            <p class="partner-desc">
+              Petite description (1 phrase). Exemple : “Partenaire institutionnel”.
+            </p>
+            <div class="partner-actions">
+              <a class="btn" href="#" onclick="return false;">Site</a>
+              <a class="btn ghost" href="#" onclick="return false;">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="callout">
+          <strong>À ajouter facilement</strong>
+          <p>
+            Quand tu auras les logos : remplace “P1/P2/…” par une image (je peux te donner le code),
+            et remplace “Partenaire #1” par le nom réel + liens.
+          </p>
         </div>
       </div>
     </section>
@@ -449,7 +669,7 @@
           <div class="card">
             <h3>Réseaux</h3>
             <p class="muted">
-              Suis l’actualité du club et les annonces des événements.
+              Suis l’actualité du club et les annonces de l’événement.
             </p>
             <a class="btn" href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">
               LinkedIn — Loquens INPact
@@ -477,9 +697,20 @@
               Astuce : mets dans ton message ton école/année, ton objectif (timidité, concours, entretien…),
               et ta dispo.
             </p>
-            <a class="btn primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Rejoindre%20Loquens%20INPact&body=Bonjour%2C%0A%0AJe%20souhaite%20rejoindre%20Loquens%20INPact.%0A-%20Nom%20%2F%20Pr%C3%A9nom%20%3A%0A-%20%C3%89cole%20%2F%20Ann%C3%A9e%20%3A%0A-%20Objectif%20%3A%0A-%20Disponibilit%C3%A9s%20%3A%0A%0AMerci%20!">
-              Envoyer un email pré-rempli
-            </a>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Rejoindre%20Loquens%20INPact&body=Bonjour%2C%0A%0AJe%20souhaite%20rejoindre%20Loquens%20INPact.%0A-%20Nom%20%2F%20Pr%C3%A9nom%20%3A%0A-%20%C3%89cole%20%2F%20Ann%C3%A9e%20%3A%0A-%20Objectif%20%3A%0A-%20Disponibilit%C3%A9s%20%3A%0A%0AMerci%20!">
+                Envoyer un email pré-rempli
+              </a>
+
+              <a class="btn" href="mailto:loquens.bordeauxinp@gmail.com?subject=Infos%20-%20%C3%89v%C3%A9nement%2029%20janvier%202026%20%C3%A0%2016h&body=Bonjour%2C%0A%0AJe%20souhaite%20des%20informations%20sur%20l%E2%80%99%C3%A9v%C3%A9nement%20du%2029%20janvier%202026%20%C3%A0%2016h%20au%20Grand%20Amphi%20de%20l%E2%80%99ENSEIRB-MATMECA.%0A%0AMerci%20!">
+                Infos événement
+              </a>
+
+              <a class="btn ghost" href="mailto:loquens.bordeauxinp@gmail.com?subject=Partenariat%20-%20Loquens%20INPact%20(29%20janvier%202026)&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%A9changer%20au%20sujet%20d%E2%80%99un%20partenariat%20pour%20l%E2%80%99%C3%A9v%C3%A9nement%20Loquens%20INPact%20du%2029%20janvier%202026%20%C3%A0%2016h%20(Grand%20Amphi%20ENSEIRB-MATMECA).%0A%0AMerci%20!">
+                Devenir partenaire
+              </a>
+            </div>
           </div>
 
           <div class="card">
@@ -492,6 +723,14 @@
             <p class="muted">
               ✅ Simple à maintenir • ✅ Clair pour les visiteurs • ✅ Zéro backend
             </p>
+            <div class="divider"></div>
+            <p class="muted">
+              Quand vous passerez sur <strong>loquensinpact.fr</strong>, vous pourrez aussi créer
+              un email du type <strong>contact@loquensinpact.fr</strong> (optionnel).
+            </p>
+            <a class="btn" href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">
+              Suivre sur LinkedIn
+            </a>
           </div>
         </div>
       </div>
@@ -523,6 +762,27 @@
     nav.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => nav.classList.remove("open"));
     });
+
+    // (Optionnel) surligner la section active (simple + léger)
+    const links = [...document.querySelectorAll('nav a[href^="#"]')];
+    const sections = links
+      .map(a => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+
+    const onScroll = () => {
+      const y = window.scrollY + 120;
+      let current = sections[0]?.id || "";
+      for (const s of sections) {
+        if (s.offsetTop <= y) current = s.id;
+      }
+      links.forEach(a => {
+        const active = a.getAttribute("href") === "#" + current;
+        a.style.color = active ? "var(--text)" : "var(--muted)";
+        a.style.background = active ? "rgba(234,240,255,.07)" : "transparent";
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
   </script>
 </body>
 </html>
