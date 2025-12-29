@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Loquens INPact — Club d’éloquence de Bordeaux INP. Entraînements, ateliers avec un pro, concours d’éloquence." />
+  <meta name="description" content="Loquens INPact — Club d’éloquence de Bordeaux INP. Entraînements, ateliers avec un pro, événement public." />
   <title>Loquens INPact — Éloquence Bordeaux INP</title>
 
   <style>
@@ -56,17 +56,13 @@
     }
     .logo{
       width:36px;height:36px;border-radius:12px;
-      background: linear-gradient(135deg, rgba(110,168,255,1), rgba(155,231,255,1));
+      background: rgba(234,240,255,.06);
+      border:1px solid var(--line);
       box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
       flex: 0 0 auto;
-    }
-    .logo:after{
-      content:"";
-      position:absolute; inset:-30%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 40%);
-      transform: rotate(20deg);
+      display:grid; place-items:center;
     }
     .brand small{display:block;color:var(--muted);font-weight:650;margin-top:-2px}
 
@@ -194,11 +190,6 @@
       letter-spacing:-.3px;
     }
     .section-title p{margin:0;color:var(--muted)}
-    .grid-4{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:14px;
-    }
     .grid-3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -242,30 +233,6 @@
     .callout strong{display:block;margin-bottom:6px}
     .callout p{margin:0;color:var(--muted)}
 
-    /* Partners */
-    .partner-card{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      min-height: 150px;
-    }
-    .partner-top{
-      display:flex; align-items:center; gap:12px;
-    }
-    .partner-logo{
-      width:44px;height:44px;border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(234,240,255,.06);
-      display:grid; place-items:center;
-      font-weight:900;
-      color: var(--muted);
-      flex: 0 0 auto;
-    }
-    .partner-meta strong{display:block}
-    .partner-meta span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
-    .partner-desc{color:var(--muted);margin:0}
-    .partner-actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
-
     /* Footer */
     footer{
       padding:24px 0 40px;
@@ -274,14 +241,10 @@
     }
 
     /* Responsive */
-    @media (max-width: 1100px){
-      .grid-4{grid-template-columns: repeat(2, 1fr)}
-    }
     @media (max-width: 920px){
       .hero-grid{grid-template-columns:1fr}
       .grid-3{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
-      .grid-4{grid-template-columns:1fr}
       nav ul{display:none}
       .menu-btn{display:inline-flex}
       nav.open ul{
@@ -304,16 +267,12 @@
       <div class="nav">
         <a class="brand" href="#top" aria-label="Aller en haut de page">
           <div class="logo">
-  <img
-    src="assets/img/Loquens.jpg"
-    alt="Logo Loquens INPact"
-    style="
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    "
-  />
-</div>
+            <img
+              src="assets/img/Loquens.jpg"
+              alt="Logo Loquens INPact"
+              style="width:100%;height:100%;object-fit:contain;"
+            />
+          </div>
 
           <div>
             Loquens INPact
@@ -328,7 +287,7 @@
           <ul>
             <li><a href="#apropos">À propos</a></li>
             <li><a href="#activites">Activités</a></li>
-            <li><a href="#evenements">Événement</a></li>
+            <li><a href="#evenement">Événement</a></li>
             <li><a href="#partenaires">Partenaires</a></li>
             <li><a href="#bureau">Bureau</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -359,7 +318,7 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn primary" href="#evenements">Voir l’événement du 29 janvier</a>
+              <a class="btn primary" href="#evenement">Voir l’événement du 29 janvier</a>
               <a class="btn" href="mailto:loquens.bordeauxinp@gmail.com?subject=Je%20souhaite%20rejoindre%20Loquens%20INPact">
                 Écrire au club
               </a>
@@ -378,12 +337,12 @@
 
           <div class="kpis">
             <div class="kpi">
-              <strong>3 séances avec un pro</strong>
-              <span>En décembre & janvier (entraînement accompagné)</span>
+              <strong>Entraînements d’éloquence</strong>
+              <span>Exercices, joutes, feedback — pour progresser à l’oral.</span>
             </div>
             <div class="kpi">
               <strong>Grand événement public</strong>
-              <span><b>29 janvier 2026 • 16h</b> — Grand Amphi ENSEIRB-MATMECA</span>
+              <span><b>Jeudi 29 janvier 2026 • 16h</b> — Grand Amphi ENSEIRB-MATMECA</span>
             </div>
             <div class="kpi">
               <strong>Tout le monde est convié</strong>
@@ -406,7 +365,7 @@
             <h3>Pourquoi Loquens INPact ?</h3>
             <p class="muted">
               Parce que parler en public, ça se travaille. Le club te permet de pratiquer régulièrement,
-              de recevoir des retours utiles, et de progresser concrètement (sans pression).
+              de recevoir des retours utiles, et de progresser concrètement.
             </p>
             <ul class="list">
               <li>Construire un discours clair et percutant</li>
@@ -419,7 +378,7 @@
             <h3>À qui ça s’adresse ?</h3>
             <p class="muted">
               À tous les étudiants Bordeaux INP (et curieux motivés), quel que soit ton niveau.
-              Timide ? Déjà à l’aise ? Tu trouveras un format adapté.
+              Débutants comme confirmés : tu progresses à ton rythme.
             </p>
             <ul class="list">
               <li>Préparation d’oraux, stages, entretiens</li>
@@ -452,24 +411,23 @@
             </p>
           </div>
           <div class="card">
-            <h3>Ateliers avec un pro</h3>
+            <h3>Progression</h3>
             <p class="muted">
-              <strong>3 séances</strong> en <strong>décembre & janvier</strong> pour booster technique et présence.
+              Le niveau vient avec la régularité : tu parles, tu testes, tu reçois des retours actionnables.
             </p>
           </div>
         </div>
 
         <div style="margin-top:14px" class="callout">
-          <strong>Objectif : progrès concret</strong>
+          <strong>Objectif : impact & confiance</strong>
           <p>
-            Tu parles (souvent), tu testes des formats, tu reçois des retours actionnables — et tu vois la différence.
-            Le niveau vient avec la régularité.
+            Une ambiance bienveillante, mais exigeante : on s’entraîne, on progresse, on se dépasse — ensemble.
           </p>
         </div>
       </div>
     </section>
 
-    <section id="evenements">
+    <section id="evenement">
       <div class="container">
         <div class="section-title">
           <h2>Événement</h2>
@@ -478,30 +436,9 @@
 
         <div class="grid-2">
           <div class="card">
-            <h3>Séances d’entraînement (avec un pro)</h3>
-            <p class="muted">
-              <strong>3 séances</strong> en <strong>décembre</strong> et <strong>janvier</strong>.  
-              <em>(Dates/horaires à préciser prochainement.)</em>
-            </p>
-            <ul class="list">
-              <li>Techniques d’oral & impact</li>
-              <li>Présence scénique & gestion du stress</li>
-              <li>Exercices + retours personnalisés</li>
-            </ul>
-            <div class="divider"></div>
-            <p class="muted">
-              Tu veux être informé dès que les dates sortent ? Envoie-nous un mail et on te mettra dans la boucle.
-            </p>
-            <a class="btn" href="mailto:loquens.bordeauxinp@gmail.com?subject=Dates%20des%20s%C3%A9ances%20avec%20un%20pro%20-%20Loquens%20INPact&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%AAtre%20inform%C3%A9(e)%20des%20dates%20des%203%20s%C3%A9ances%20avec%20un%20pro.%0A%0AMerci%20!">
-              Me tenir informé
-            </a>
-          </div>
-
-          <div class="card">
             <h3>Grand événement d’éloquence</h3>
             <p class="muted">
-              <strong>Jeudi 29 janvier 2026</strong> — <strong>16h</strong>  
-              <br/>
+              <strong>Jeudi 29 janvier 2026</strong> — <strong>16h</strong><br/>
               <strong>Grand amphithéâtre</strong> — ENSEIRB-MATMECA
             </p>
 
@@ -517,14 +454,28 @@
             <div class="divider"></div>
 
             <p class="muted">
-              Au programme : prises de parole, joutes, moments forts, et une ambiance digne d’un vrai concours.
-              <em>(Détails + déroulé à venir.)</em>
+              Pour participer (ou poser une question), contactez-nous par email.
             </p>
 
             <div class="hero-actions" style="margin-top:10px">
-              <a class="btn primary" href="#partenaires">Voir les partenaires</a>
-              <a class="btn" href="#contact">Participer / infos</a>
+              <a class="btn primary" href="#contact">Participer / infos</a>
+              <a class="btn" href="mailto:loquens.bordeauxinp@gmail.com?subject=Infos%20-%20%C3%89v%C3%A9nement%2029%20janvier%202026%20%C3%A0%2016h">
+                Email direct
+              </a>
             </div>
+          </div>
+
+          <div class="card">
+            <h3>Lieu</h3>
+            <p class="muted">
+              Grand amphithéâtre — <strong>ENSEIRB-MATMECA</strong><br/>
+              351 cours de la Libération, 33400 Talence
+            </p>
+            <div class="divider"></div>
+            <a class="btn" target="_blank" rel="noreferrer"
+               href="https://www.google.com/maps?q=ENSEIRB-MATMECA%20351%20cours%20de%20la%20Lib%C3%A9ration%2033400%20Talence">
+              Ouvrir dans Google Maps
+            </a>
           </div>
         </div>
       </div>
@@ -534,122 +485,44 @@
       <div class="container">
         <div class="section-title">
           <h2>Partenaires</h2>
-          <p>Entreprises, médias, acteurs locaux… merci pour votre soutien.</p>
+          <p>Entreprises, médias, acteurs locaux : soutenez l’événement.</p>
         </div>
 
         <div class="grid-2">
           <div class="card">
-            <h3>Pourquoi devenir partenaire ?</h3>
+            <h3>Devenir partenaire</h3>
             <p class="muted">
-              L’événement du <strong>29 janvier 2026 (16h)</strong> est une vitrine : prise de parole, talent étudiant,
-              transmission et impact. Un partenariat permet de soutenir le projet et de gagner en visibilité.
+              Vous souhaitez soutenir l’événement du <strong>29 janvier 2026 (16h)</strong> au Grand Amphi de l’ENSEIRB-MATMECA ?
+              Écrivez-nous : nous vous répondrons rapidement.
             </p>
             <ul class="list">
-              <li>Visibilité pendant l’événement (affichage, mentions, remerciements)</li>
-              <li>Image : soutien à la formation, à l’oral, au leadership étudiant</li>
+              <li>Visibilité pendant l’événement</li>
+              <li>Soutien à l’oral et au leadership étudiant</li>
               <li>Possibilités : lots, sponsoring, présence, relais média</li>
             </ul>
+
             <div class="divider"></div>
-            <a class="btn primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Partenariat%20-%20Loquens%20INPact%20(29%20janvier%202026)&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%A9changer%20au%20sujet%20d%E2%80%99un%20partenariat%20pour%20l%E2%80%99%C3%A9v%C3%A9nement%20Loquens%20INPact%20du%2029%20janvier%202026%20%C3%A0%2016h%20(Grand%20Amphi%20ENSEIRB-MATMECA).%0A%0AOrganisation%20%3A%0A%0AType%20de%20partenariat%20envisag%C3%A9%20%3A%0A%0AMerci%20!">
+
+            <a class="btn primary"
+               href="mailto:loquens.bordeauxinp@gmail.com?subject=Partenariat%20-%20Loquens%20INPact%20(29%20janvier%202026%2016h)&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%A9changer%20au%20sujet%20d%E2%80%99un%20partenariat%20pour%20l%E2%80%99%C3%A9v%C3%A9nement%20Loquens%20INPact%20du%2029%20janvier%202026%20%C3%A0%2016h%20(Grand%20Amphi%20ENSEIRB-MATMECA).%0A%0ANom%20de%20la%20structure%20%3A%0AContact%20%3A%0AType%20de%20partenariat%20envisag%C3%A9%20%3A%0A%0AMerci%20!">
               Proposer un partenariat
             </a>
           </div>
 
           <div class="card">
-            <h3>Ils nous soutiennent</h3>
+            <h3>Contact Partenariats</h3>
             <p class="muted">
-              Cette section est prête : dès que tu as les noms/logos, tu remplaces les cartes ci-dessous.
+              Email : <a href="mailto:loquens.bordeauxinp@gmail.com">loquens.bordeauxinp@gmail.com</a><br/>
+              LinkedIn : <a href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">Loquens INPact</a>
             </p>
+
             <div class="divider"></div>
-            <div>
-              <span class="pill">🏢 Entreprises</span>
-              <span class="pill">📰 Médias</span>
-              <span class="pill">🤝 Institutions</span>
-              <span class="pill">🌍 Acteurs locaux</span>
+
+            <div class="callout">
+              <strong>Merci</strong>
+              <p>Votre soutien permet de faire vivre la culture de l’éloquence à Bordeaux INP.</p>
             </div>
           </div>
-        </div>
-
-        <div style="margin-top:14px" class="grid-4">
-          <!-- PARTENAIRE 1 -->
-          <div class="card partner-card">
-            <div class="partner-top">
-              <div class="partner-logo" title="Logo à ajouter">P1</div>
-              <div class="partner-meta">
-                <strong>Partenaire #1</strong>
-                <span>Entreprise / Média / Institution</span>
-              </div>
-            </div>
-            <p class="partner-desc">
-              Petite description (1 phrase). Exemple : “Soutien principal de l’événement”.
-            </p>
-            <div class="partner-actions">
-              <a class="btn" href="#" onclick="return false;">Site</a>
-              <a class="btn ghost" href="#" onclick="return false;">LinkedIn</a>
-            </div>
-          </div>
-
-          <!-- PARTENAIRE 2 -->
-          <div class="card partner-card">
-            <div class="partner-top">
-              <div class="partner-logo" title="Logo à ajouter">P2</div>
-              <div class="partner-meta">
-                <strong>Partenaire #2</strong>
-                <span>Entreprise / Média / Institution</span>
-              </div>
-            </div>
-            <p class="partner-desc">
-              Petite description (1 phrase). Exemple : “Relais média / couverture de l’événement”.
-            </p>
-            <div class="partner-actions">
-              <a class="btn" href="#" onclick="return false;">Site</a>
-              <a class="btn ghost" href="#" onclick="return false;">LinkedIn</a>
-            </div>
-          </div>
-
-          <!-- PARTENAIRE 3 -->
-          <div class="card partner-card">
-            <div class="partner-top">
-              <div class="partner-logo" title="Logo à ajouter">P3</div>
-              <div class="partner-meta">
-                <strong>Partenaire #3</strong>
-                <span>Entreprise / Média / Institution</span>
-              </div>
-            </div>
-            <p class="partner-desc">
-              Petite description (1 phrase). Exemple : “Dotations / lots pour les participants”.
-            </p>
-            <div class="partner-actions">
-              <a class="btn" href="#" onclick="return false;">Site</a>
-              <a class="btn ghost" href="#" onclick="return false;">LinkedIn</a>
-            </div>
-          </div>
-
-          <!-- PARTENAIRE 4 -->
-          <div class="card partner-card">
-            <div class="partner-top">
-              <div class="partner-logo" title="Logo à ajouter">P4</div>
-              <div class="partner-meta">
-                <strong>Partenaire #4</strong>
-                <span>Entreprise / Média / Institution</span>
-              </div>
-            </div>
-            <p class="partner-desc">
-              Petite description (1 phrase). Exemple : “Partenaire institutionnel”.
-            </p>
-            <div class="partner-actions">
-              <a class="btn" href="#" onclick="return false;">Site</a>
-              <a class="btn ghost" href="#" onclick="return false;">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:14px" class="callout">
-          <strong>À ajouter facilement</strong>
-          <p>
-            Quand tu auras les logos : remplace “P1/P2/…” par une image (je peux te donner le code),
-            et remplace “Partenaire #1” par le nom réel + liens.
-          </p>
         </div>
       </div>
     </section>
@@ -658,23 +531,20 @@
       <div class="container">
         <div class="section-title">
           <h2>Bureau</h2>
-          <p>Contact direct et organisation du club.</p>
+          <p>Organisation du club.</p>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-2">
           <div class="card">
             <h3>Samy MAACH</h3>
             <p class="muted"><strong>Président</strong></p>
-            <p class="muted">Les autres membres du bureau seront ajoutés prochainement.</p>
-          </div>
-
-          <div class="card">
-            <h3>Valeurs</h3>
-            <ul class="list">
-              <li>Bienveillance</li>
-              <li>Exigence progressive</li>
-              <li>Apprentissage par la pratique</li>
-            </ul>
+            <div class="divider"></div>
+            <p class="muted">
+              Pour toute question (adhésion, événement, partenariats), le plus simple est de nous écrire par email.
+            </p>
+            <a class="btn" href="mailto:loquens.bordeauxinp@gmail.com?subject=Loquens%20INPact%20-%20Question">
+              Contacter le président
+            </a>
           </div>
 
           <div class="card">
@@ -694,54 +564,45 @@
       <div class="container">
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Pour rejoindre, poser une question, ou proposer un partenariat.</p>
+          <p>Rejoindre, assister à l’événement, ou proposer un partenariat.</p>
         </div>
 
         <div class="grid-2">
           <div class="card">
             <h3>Email</h3>
             <p class="muted">
-              “Eloquence Bordeaux INP” — <a href="mailto:loquens.bordeauxinp@gmail.com">loquens.bordeauxinp@gmail.com</a>
+              “Éloquence Bordeaux INP” — <a href="mailto:loquens.bordeauxinp@gmail.com">loquens.bordeauxinp@gmail.com</a>
             </p>
+
             <div class="divider"></div>
-            <p class="muted">
-              Astuce : mets dans ton message ton école/année, ton objectif (timidité, concours, entretien…),
-              et ta dispo.
-            </p>
 
             <div class="hero-actions">
-              <a class="btn primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Rejoindre%20Loquens%20INPact&body=Bonjour%2C%0A%0AJe%20souhaite%20rejoindre%20Loquens%20INPact.%0A-%20Nom%20%2F%20Pr%C3%A9nom%20%3A%0A-%20%C3%89cole%20%2F%20Ann%C3%A9e%20%3A%0A-%20Objectif%20%3A%0A-%20Disponibilit%C3%A9s%20%3A%0A%0AMerci%20!">
-                Envoyer un email pré-rempli
+              <a class="btn primary"
+                 href="mailto:loquens.bordeauxinp@gmail.com?subject=Rejoindre%20Loquens%20INPact&body=Bonjour%2C%0A%0AJe%20souhaite%20rejoindre%20Loquens%20INPact.%0A-%20Nom%20%2F%20Pr%C3%A9nom%20%3A%0A-%20%C3%89cole%20%2F%20Ann%C3%A9e%20%3A%0A-%20Objectif%20%3A%0A%0AMerci%20!">
+                Rejoindre le club
               </a>
 
-              <a class="btn" href="mailto:loquens.bordeauxinp@gmail.com?subject=Infos%20-%20%C3%89v%C3%A9nement%2029%20janvier%202026%20%C3%A0%2016h&body=Bonjour%2C%0A%0AJe%20souhaite%20des%20informations%20sur%20l%E2%80%99%C3%A9v%C3%A9nement%20du%2029%20janvier%202026%20%C3%A0%2016h%20au%20Grand%20Amphi%20de%20l%E2%80%99ENSEIRB-MATMECA.%0A%0AMerci%20!">
+              <a class="btn"
+                 href="mailto:loquens.bordeauxinp@gmail.com?subject=Infos%20-%20%C3%89v%C3%A9nement%2029%20janvier%202026%20%C3%A0%2016h&body=Bonjour%2C%0A%0AJe%20souhaite%20des%20informations%20sur%20l%E2%80%99%C3%A9v%C3%A9nement%20du%2029%20janvier%202026%20%C3%A0%2016h%20au%20Grand%20Amphi%20de%20l%E2%80%99ENSEIRB-MATMECA.%0A%0AMerci%20!">
                 Infos événement
               </a>
 
-              <a class="btn ghost" href="mailto:loquens.bordeauxinp@gmail.com?subject=Partenariat%20-%20Loquens%20INPact%20(29%20janvier%202026)&body=Bonjour%2C%0A%0AJe%20souhaite%20%C3%A9changer%20au%20sujet%20d%E2%80%99un%20partenariat%20pour%20l%E2%80%99%C3%A9v%C3%A9nement%20Loquens%20INPact%20du%2029%20janvier%202026%20%C3%A0%2016h%20(Grand%20Amphi%20ENSEIRB-MATMECA).%0A%0AMerci%20!">
+              <a class="btn ghost"
+                 href="mailto:loquens.bordeauxinp@gmail.com?subject=Partenariat%20-%20Loquens%20INPact%20(29%20janvier%202026%2016h)">
                 Devenir partenaire
               </a>
             </div>
           </div>
 
           <div class="card">
-            <h3>Formulaire (optionnel)</h3>
+            <h3>Accès rapide</h3>
             <p class="muted">
-              Tu peux ajouter ici un Google Form / Typeform plus tard.  
-              Pour l’instant, le contact email + LinkedIn suffit parfaitement.
+              LinkedIn : <a href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">Loquens INPact</a>
             </p>
             <div class="divider"></div>
             <p class="muted">
-              ✅ Simple à maintenir • ✅ Clair pour les visiteurs • ✅ Zéro backend
+              Bientôt : <strong>loquensinpact.fr</strong>
             </p>
-            <div class="divider"></div>
-            <p class="muted">
-              Quand vous passerez sur <strong>loquensinpact.fr</strong>, vous pourrez aussi créer
-              un email du type <strong>contact@loquensinpact.fr</strong> (optionnel).
-            </p>
-            <a class="btn" href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">
-              Suivre sur LinkedIn
-            </a>
           </div>
         </div>
       </div>
@@ -749,32 +610,21 @@
   </main>
 
   <footer>
-  <div class="container">
-    <div class="muted" style="
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    ">
-      <img
-        src="assets/img/Loquens.jpg"
-        alt="Logo Loquens INPact"
-        style="
-          height:26px;
-          width:auto;
-          opacity:0.9;
-        "
-      />
-
-      <span>
-        © <span id="year"></span> <strong>Loquens INPact</strong> — Éloquence Bordeaux INP •
-        <a href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">LinkedIn</a> •
-        <a href="mailto:loquens.bordeauxinp@gmail.com">Email</a>
-      </span>
+    <div class="container">
+      <div class="muted" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <img
+          src="assets/img/Loquens.jpg"
+          alt="Logo Loquens INPact"
+          style="height:26px;width:auto;opacity:0.9;"
+        />
+        <span>
+          © <span id="year"></span> <strong>Loquens INPact</strong> — Éloquence Bordeaux INP •
+          <a href="https://www.linkedin.com/company/loquens-inpact/?viewAsMember=true" target="_blank" rel="noreferrer">LinkedIn</a> •
+          <a href="mailto:loquens.bordeauxinp@gmail.com">Email</a>
+        </span>
+      </div>
     </div>
-  </div>
-</footer>
-
+  </footer>
 
   <script>
     // Année auto
@@ -792,7 +642,7 @@
       a.addEventListener("click", () => nav.classList.remove("open"));
     });
 
-    // (Optionnel) surligner la section active (simple + léger)
+    // Surligner la section active
     const links = [...document.querySelectorAll('nav a[href^="#"]')];
     const sections = links
       .map(a => document.querySelector(a.getAttribute("href")))
