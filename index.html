@@ -243,6 +243,28 @@
     .callout strong{display:block;margin-bottom:6px}
     .callout p{margin:0;color:var(--muted)}
 
+        /* Galerie photos */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      margin-top:22px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      border-radius:22px;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      transition: .25s ease;
+    }
+
+    .gallery img:hover{
+      transform: translateY(-4px) scale(1.01);
+    }
+
     /* Footer */
     footer{
       padding:24px 0 40px;
@@ -267,7 +289,16 @@
       header{position:sticky}
       .cta{width:100%; justify-content:flex-end}
       .brand{min-width:auto}
+            .gallery{
+        grid-template-columns:1fr;
+      }
+
+      .gallery img{
+        height:240px;
+      }
     }
+
+    
   </style>
 </head>
 
@@ -482,6 +513,23 @@
         </div>
       </div>
     </section>
+
+    <section id="galerie">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>L’ambiance Loquens</h2>
+      <p>Des prises de parole, du public, de l’énergie.</p>
+    </div>
+
+    <div class="gallery">
+      <img src="assets/img/photo1.jfif">
+      <img src="assets/img/photo2.jfif">
+      <img src="assets/img/photo3.jfif">
+    </div>
+
+  </div>
+</section>
 
     <section id="evenements">
       <div class="container">
