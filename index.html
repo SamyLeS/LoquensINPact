@@ -55,7 +55,7 @@
             font-weight: 700;
         }
         .brand-logo-img {
-            height: 32px; /* Taille logo dans le menu */
+            height: 32px;
             width: auto;
             display: block;
         }
@@ -66,7 +66,6 @@
         nav a { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
         nav a:hover { color: var(--accent); }
 
-        /* Boutons */
         .btn {
             display: inline-flex; align-items: center; justify-content: center;
             padding: 12px 20px; border-radius: 8px; font-weight: 700; font-size: 14px;
@@ -85,7 +84,7 @@
             background: radial-gradient(circle at 50% -20%, #16213e 0%, var(--bg) 70%);
         }
         .hero-logo-main {
-            height: 100px; /* Grand logo Central */
+            height: 100px;
             width: auto;
             margin-bottom: 30px;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
@@ -130,7 +129,27 @@
             border: 1px solid var(--line); text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
         }
 
-        /* --- Highlight Box (Callout) --- */
+        /* --- Logos Partenaires Grid --- */
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .partner-grid img {
+            width: 100%;
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(1) brightness(2);
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        .partner-grid img:hover {
+            filter: grayscale(0) brightness(1);
+            opacity: 1;
+        }
+
         .callout {
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(10, 18, 36, 0.2));
             border: 1px solid rgba(212, 175, 55, 0.3); padding: 30px; border-radius: var(--radius); margin-top: 30px;
@@ -138,16 +157,13 @@
         .callout strong { color: var(--accent); display: block; margin-bottom: 10px; font-size: 20px; font-family: 'Playfair Display', serif; }
         .callout p { margin: 0; color: var(--muted); font-size: 16px; font-weight: 300; }
 
-        /* --- Gallery --- */
         .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
         .gallery img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); filter: grayscale(20%); transition: 0.4s; }
         .gallery img:hover { filter: grayscale(0%); transform: scale(1.02); }
 
-        /* --- Footer --- */
         footer { padding: 80px 0; text-align: center; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); background: #03050a; }
         .footer-logo-img { height: 40px; width: auto; margin-bottom: 20px; opacity: 0.8; }
 
-        /* Mobile */
         @media (max-width: 850px) {
             .grid-3, .grid-2, .gallery { grid-template-columns: 1fr; }
             nav ul { display: none; }
@@ -194,12 +210,12 @@
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
                     <a class="btn btn-primary" href="#ecoles">🎓 Inscrire son école</a>
                     <a class="btn btn-ghost" href="#partenaires">🏢 Devenir partenaire</a>
-                    <a class="btn btn-ghost" href="#evenements">🎤 Voir la finale</a>
+                    <a class="btn btn-ghost" href="#evenements">🎤 Voir la finale 2027</a>
                 </div>
                 <div style="margin-top: 50px;">
                     <span class="pill">🇫🇷 30 écoles participantes</span>
-                    <span class="pill">🎤 Finale nationale public</span>
-                    <span class="pill">🏆 Dotations prestige</span>
+                    <span class="pill">🎤 Finale nationale 2027</span>
+                    <span class="pill">🏆 Quarts & Demis décentralisés</span>
                 </div>
             </div>
         </section>
@@ -230,25 +246,25 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Le Parcours d'Excellence</h2>
-                    <p>Un accompagnement complet pour passer de l'amphi à la scène.</p>
+                    <p>Un accompagnement complet pour passer de l'amphi à la scène nationale.</p>
                 </div>
                 <div class="grid grid-3">
                     <div class="card">
-                        <h3>Entraînements</h3>
-                        <p>Ateliers pratiques sur la structure narrative, la persuasion, le storytelling et la gestion du temps de parole.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Joutes & débats</h3>
-                        <p>Mises en situation réelles, thèmes imposés, formats courts/longs pour forger la répartie et l'argumentation.</p>
+                        <h3>Quarts de Finale</h3>
+                        <p>Les phases de sélection et les quarts de finale se déroulent au sein même de vos campus partenaires pour faire vibrer l'éloquence locale.</p>
                     </div>
                     <div class="card" style="border-color: var(--accent);">
-                        <h3>Coaching Pro</h3>
-                        <p><strong>3 séances intensives</strong> (Décembre & Janvier) avec des professionnels de la parole pour sublimer la technique.</p>
+                        <h3>Demi-Finales Nationales</h3>
+                        <p>Les meilleurs orateurs des écoles sélectionnées s'affrontent lors de demi-finales organisées dans des écoles pôles stratégiques.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Coaching Intensif</h3>
+                        <p><strong>3 séances intensives</strong> avec des professionnels de la parole (avocats, comédiens) pour sublimer votre technique avant la finale.</p>
                     </div>
                 </div>
                 <div class="callout">
                     <strong>La promesse Loquens : Progrès mesurable</strong>
-                    <p>Tu testes des formats, tu échoues, tu recommences, tu reçois des retours actionnables — et tu vois la différence concrète lors de la finale.</p>
+                    <p>Tu testes des formats, tu échoues, tu recommences, tu reçois des retours actionnables — et tu vois la différence concrète lors de la grande finale.</p>
                 </div>
             </div>
         </section>
@@ -272,8 +288,8 @@
                         <h3>Modalités de participation</h3>
                         <ul class="list-clean">
                             <li>Sélection interne de 1 à 3 candidats par établissement</li>
+                            <li>Organisation des quarts de finale sur votre campus</li>
                             <li>Accès complet au programme de coaching national</li>
-                            <li>Représentation lors des phases finales</li>
                         </ul>
                         <a class="btn btn-primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Candidature%20Ecole%20Nationale" style="width:100%; margin-top:15px;">Candidater pour mon école</a>
                     </div>
@@ -285,7 +301,7 @@
             <div class="container">
                 <div class="section-title" style="text-align: center;">
                     <h2>L'Héritage Bordelais</h2>
-                    <p style="margin: 0 auto;">Revivez l'énergie, le public et l'intensité de l'édition pilote à Bordeaux INP. Le socle de notre ambition nationale.</p>
+                    <p style="margin: 0 auto;">Revivez l'énergie et l'intensité de l'édition pilote à Bordeaux INP. Le socle de notre ambition nationale.</p>
                 </div>
                 <div class="gallery">
                     <img src="assets/img/photo1.jfif" alt="Orateur Loquens sur scène">
@@ -299,28 +315,28 @@
             <div class="container">
                 <div class="section-title">
                     <h2>La Grande Finale Nationale</h2>
-                    <p>Un événement oratoire majeur, ouvert au public et aux recruteurs.</p>
+                    <p>L'aboutissement d'un parcours d'excellence oratoire.</p>
                 </div>
                 <div class="grid grid-2">
                     <div class="card">
-                        <h3>Phases de Préparation</h3>
-                        <p>Les finalistes suivent un parcours de <strong>3 séances de coaching</strong> en décembre et janvier avec un expert en communication scénique.</p>
+                        <h3>Un Tournoi en plusieurs étapes</h3>
+                        <p>Après les quarts et demi-finales organisés dans les écoles partenaires à travers la France, les 8 finalistes se disputeront le titre national.</p>
                         <ul class="list-clean">
-                            <li>Impact du discours & Rhétorique</li>
-                            <li>Gestion du stress & Présence</li>
-                            <li>Retours personnalisés vidéo</li>
+                            <li>Phase qualificative décentralisée</li>
+                            <li>Coaching personnalisé vidéo & présentiel</li>
+                            <li>Finale devant un jury de prestige</li>
                         </ul>
                     </div>
                     <div class="card" style="background: var(--accent); color: #000; border: none;">
                         <h3 style="color: #000;">Le Grand Rendez-vous</h3>
-                        <p style="color: #000; font-weight: 700; font-size: 18px; margin-bottom: 10px;">
-                            Jeudi 29 janvier 2026 — 16h
+                        <p style="color: #000; font-weight: 700; font-size: 20px; margin-bottom: 10px;">
+                            Mars 2027
                         </p>
                         <p style="color: #000; font-weight: 600; margin-bottom: 20px;">
-                            Grand amphithéâtre<br>ENSEIRB-MATMECA, Bordeaux
+                            Grand amphithéâtre<br>Bordeaux (Lieu pressenti)
                         </p>
-                        <p style="color: #333; font-size: 14px; font-weight: 400;">Entrée libre pour assister et soutenir les orateurs.</p>
-                        <a class="btn" href="#contact" style="background: #000; color: #fff; border:none; margin-top:15px; width: 100%;">Réserver ma place (Public)</a>
+                        <p style="color: #333; font-size: 14px; font-weight: 400;">Un événement national ouvert au public, aux recruteurs et aux passionnés de rhétorique.</p>
+                        <a class="btn" href="#contact" style="background: #000; color: #fff; border:none; margin-top:15px; width: 100%;">Infos & Réservations</a>
                     </div>
                 </div>
             </div>
@@ -334,21 +350,24 @@
                 </div>
                 <div class="grid grid-2">
                     <div class="card">
-                        <h3>Soutenir l'événement</h3>
-                        <p>Vous souhaitez soutenir la finale du 29 janvier 2026 au Grand Amphi de l’ENSEIRB-MATMECA ? Contactez-nous pour découvrir nos offres de sponsoring.</p>
+                        <h3>Soutenir l'édition 2027</h3>
+                        <p>Devenez un acteur majeur de cette aventure nationale. Nous proposons des offres de sponsoring adaptées à votre stratégie de marque employeur.</p>
                         <ul class="list-clean">
-                            <li>Visibilité nationale (Print, Web, Réseaux)</li>
-                            <li>Accès privilégié au vivier de talents</li>
-                            <li>Présence dans le jury officiel</li>
+                            <li>Visibilité sur tout le tournoi national</li>
+                            <li>Accès direct au vivier des meilleures écoles</li>
+                            <li>Siège au jury de la finale 2027</li>
                         </ul>
-                        <a class="btn btn-primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Partenariat%20National%20Loquens&body=Bonjour, nous souhaitons échanger sur les modalités de partenariat pour l'édition nationale..." style="margin-top:15px;">Demander le dossier de sponsoring</a>
+                        <a class="btn btn-primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Partenariat%20National%20Loquens" style="margin-top:15px;">Demander le dossier de sponsoring</a>
                     </div>
                     <div class="card">
-                        <h3>Ils nous soutiennent</h3>
-                        <p>La liste des entreprises et institutions partenaires sera révélée prochainement.</p>
-                        <div style="border: 1px dashed var(--line); padding: 40px; text-align: center; color: var(--muted); border-radius: 8px; font-size: 14px; font-weight: 300;">
-                            Espace réservé aux logos partenaires confirmés
+                        <h3>Ils nous ont fait confiance</h3>
+                        <p>Nous sommes fiers d'avoir été soutenus dès la première édition par des acteurs institutionnels et industriels majeurs :</p>
+                        <div class="partner-grid">
+                            <img src="assets/img/ADT.png" alt="Logo ADT">
+                            <img src="assets/img/BP.png" alt="Logo Banque Populaire">
+                            <img src="assets/img/CEA.png" alt="Logo CEA">
                         </div>
+                        <p style="font-size: 13px; margin-top: 20px; color: var(--muted); text-align: center;">Partenaires historiques de l'édition pilote à Bordeaux INP.</p>
                     </div>
                 </div>
             </div>
@@ -366,14 +385,14 @@
                         <p>L'équipe organisatrice Loquens INPact :</p>
                         <p style="font-size: 18px; font-weight: 600;"><a href="mailto:loquens.bordeauxinp@gmail.com" style="color:var(--accent)">loquens.bordeauxinp@gmail.com</a></p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 25px;">
-                            <a class="btn btn-ghost" href="mailto:loquens.bordeauxinp@gmail.com?subject=Rejoindre%20le%20club%20Loquens">Rejoindre le club</a>
-                            <a class="btn btn-ghost" href="mailto:loquens.bordeauxinp@gmail.com?subject=Demande%20Infos%20Evenement%202026">Infos finale</a>
+                            <a class="btn btn-ghost" href="mailto:loquens.bordeauxinp@gmail.com?subject=Rejoindre%20le%20club%20Loquens">Rejoindre</a>
+                            <a class="btn btn-ghost" href="mailto:loquens.bordeauxinp@gmail.com?subject=Demande%20Infos%20National">Infos 2027</a>
                         </div>
                     </div>
                     <div class="card">
                         <h3>Réseau LinkedIn</h3>
-                        <p>Suivez l’actualité, les portraits des orateurs et les coulisses de l'organisation.</p>
-                        <a class="btn btn-primary" href="https://www.linkedin.com/company/loquens-inpact/" target="_blank" style="width:100%; margin-top: 10px;">Voir la page LinkedIn</a>
+                        <p>Suivez l’actualité et les annonces de l’événement national.</p>
+                        <a class="btn btn-primary" href="https://www.linkedin.com/company/loquens-inpact/" target="_blank" style="width:100%; margin-top: 10px;">Suivre sur LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -383,7 +402,7 @@
     <footer>
         <div class="container">
             <img src="assets/img/Loquens.png" alt="Logo Loquens INPact" class="footer-logo-img">
-            <p>© 2026 <strong>Loquens National</strong> — Porté avec fierté par Loquens INPact Bordeaux</p>
+            <p>© 2026-2027 <strong>Loquens National</strong> — Porté avec fierté par Loquens INPact Bordeaux</p>
             <p style="font-size: 12px; margin-top: 10px; opacity: 0.6; font-weight: 300;">Le plus grand rassemblement d'éloquence technique de France.</p>
         </div>
     </footer>
