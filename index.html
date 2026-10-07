@@ -6,6 +6,16 @@
     <meta name="description" content="Loquens National — Le prestigieux concours d'éloquence des grandes écoles d'ingénieurs de France. Organisé par Loquens INPact Bordeaux." />
     <title>LOQUENS | Concours National d'Éloquence Ingénieur</title>
 
+    <!-- Forçage HTTPS (fallback JS ; le vrai forçage se fait dans GitHub Pages > Enforce HTTPS) -->
+    <script>
+        if (location.protocol !== 'https:' && !/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+            location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+        }
+    </script>
+
+    <!-- Analytics sans cookies (GoatCounter) -->
+    <script data-goatcounter="https://loquens.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 
     <style>
@@ -163,6 +173,30 @@
 
         footer { padding: 80px 0; text-align: center; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); background: #03050a; }
         .footer-logo-img { height: 40px; width: auto; margin-bottom: 20px; opacity: 0.8; }
+        .footer-links { margin-top: 24px; font-size: 13px; }
+        .footer-links a { color: var(--muted); border-bottom: 1px solid transparent; }
+        .footer-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+        .footer-links span { margin: 0 10px; opacity: 0.4; }
+
+        /* --- Lien e-mail protégé anti-spam (assemblé en JS) --- */
+        .js-mail { color: var(--accent); cursor: pointer; }
+        .js-mail:hover { text-decoration: underline; }
+
+        /* --- Bandeau cookies / information --- */
+        .cookie-banner {
+            position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%);
+            width: min(720px, calc(100% - 32px)); z-index: 200;
+            display: none; align-items: center; gap: 20px;
+            padding: 18px 22px; border-radius: 12px;
+            background: rgba(10, 18, 36, 0.96); border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); backdrop-filter: blur(12px);
+            font-size: 14px; color: var(--muted); line-height: 1.5;
+        }
+        .cookie-banner.is-visible { display: flex; }
+        .cookie-banner p { margin: 0; flex: 1; }
+        .cookie-banner a { color: var(--accent); }
+        .cookie-banner .btn { padding: 10px 16px; font-size: 13px; }
+        @media (max-width: 600px) { .cookie-banner { flex-direction: column; align-items: stretch; text-align: center; } }
 
         @media (max-width: 850px) {
             .grid-3, .grid-2, .gallery { grid-template-columns: 1fr; }
@@ -193,7 +227,7 @@
                     </ul>
                 </nav>
                 <div class="cta-header">
-                    <a href="#contact" class="btn btn-primary">Rejoindre</a>
+                    <a href="https://forms.gle/eWAu1jMjXdPn2yk27" target="_blank" rel="noopener" class="btn btn-primary">Rejoindre</a>
                 </div>
             </div>
         </div>
@@ -208,14 +242,12 @@
                     <strong>Loquens INPact</strong> déploie le premier concours national d’éloquence dédié aux étudiants ingénieurs. Former, révéler et faire performer les leaders technologiques de demain.
                 </p>
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
-                    <a class="btn btn-primary" href="#ecoles">🎓 S'inscire pour participer</a>
-                    <a class="btn btn-ghost" href="#partenaires">🏢 Devenir partenaire</a>
-                    <a class="btn btn-ghost" href="#evenements">🎤 Voir la finale 2027</a>
+                    <a class="btn btn-primary" href="https://forms.gle/eWAu1jMjXdPn2yk27" target="_blank" rel="noopener">🎓 S'inscrire pour participer</a>
                 </div>
                 <div style="margin-top: 50px;">
                     <span class="pill">🇫🇷 30 écoles participantes</span>
                     <span class="pill">🎤 Finale nationale 2027</span>
-                    <span class="pill">🏆 Quarts & Demis décentralisés</span>
+                    <span class="pill">🎥 Quarts & Demis en vidéo</span>
                 </div>
             </div>
         </section>
@@ -251,11 +283,11 @@
                 <div class="grid grid-3">
                     <div class="card">
                         <h3>Quarts de Finale</h3>
-                        <p>Les phases de sélection et les quarts de finale se déroulent au sein même de vos campus partenaires pour faire vibrer l'éloquence locale.</p>
+                        <p>Les quarts de finale se jouent à distance : chaque candidat enregistre sa prestation en vidéo, évaluée par le jury Loquens. Selon les phases, les prestations sont visionnées en interne ou diffusées sur notre compte Instagram.</p>
                     </div>
                     <div class="card" style="border-color: var(--accent);">
                         <h3>Demi-Finales Nationales</h3>
-                        <p>Les meilleurs orateurs des écoles sélectionnées s'affrontent lors de demi-finales organisées dans des écoles pôles stratégiques.</p>
+                        <p>Les meilleurs orateurs des quarts s'affrontent lors de demi-finales, elles aussi en format vidéo et jugées à distance par le jury national. À la clé : l'une des 8 places pour la grande finale.</p>
                     </div>
                     <div class="card">
                         <h3>Coaching Intensif</h3>
@@ -288,10 +320,10 @@
                         <h3>Modalités de participation</h3>
                         <ul class="list-clean">
                             <li>Sélection interne de 1 à 3 candidats par établissement</li>
-                            <li>Organisation des quarts de finale sur votre campus</li>
+                            <li>Quarts et demi-finales en format vidéo, à distance : aucune logistique à prévoir pour votre établissement</li>
                             <li>Accès complet au programme de coaching national</li>
                         </ul>
-                        <a class="btn btn-primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Candidature%20Ecole%20Nationale" style="width:100%; margin-top:15px;">Candidater pour mon école</a>
+                        <a class="btn btn-primary" href="https://forms.gle/eWAu1jMjXdPn2yk27" target="_blank" rel="noopener" style="width:100%; margin-top:15px;">S'inscrire pour participer</a>
                     </div>
                 </div>
             </div>
@@ -320,9 +352,9 @@
                 <div class="grid grid-2">
                     <div class="card">
                         <h3>Un Tournoi en plusieurs étapes</h3>
-                        <p>Après les quarts et demi-finales organisés dans les écoles partenaires à travers la France, les 8 finalistes se disputeront le titre national.</p>
+                        <p>Après des quarts et demi-finales disputés en format vidéo, les 8 finalistes montent enfin sur scène pour se disputer le titre national.</p>
                         <ul class="list-clean">
-                            <li>Phase qualificative décentralisée</li>
+                            <li>Phases qualificatives à distance, en vidéo</li>
                             <li>Coaching personnalisé vidéo & présentiel</li>
                             <li>Finale devant un jury de prestige</li>
                         </ul>
@@ -336,7 +368,6 @@
                             <br>Paris
                         </p>
                         <p style="color: #333; font-size: 14px; font-weight: 400;">Un événement national ouvert au public, aux recruteurs et aux passionnés de rhétorique.</p>
-                        <a class="btn" href="#contact" style="background: #000; color: #fff; border:none; margin-top:15px; width: 100%;">Infos & Réservations</a>
                     </div>
                 </div>
             </div>
@@ -357,7 +388,7 @@
                             <li>Accès direct au vivier des meilleures écoles</li>
                             <li>Siège au jury de la finale 2027</li>
                         </ul>
-                        <a class="btn btn-primary" href="mailto:loquens.bordeauxinp@gmail.com?subject=Partenariat%20National%20Loquens" style="margin-top:15px;">Demander le dossier de sponsoring</a>
+                        <p style="margin-top:15px; margin-bottom:0;">Pour recevoir le dossier de sponsoring, écrivez-nous via la <a href="#contact" style="color: var(--accent);">section contact</a>.</p>
                     </div>
                     <div class="card">
                         <h3>Ils nous ont fait confiance</h3>
@@ -383,16 +414,14 @@
                     <div class="card">
                         <h3>Canal Officiel</h3>
                         <p>L'équipe organisatrice Loquens INPact :</p>
-                        <p style="font-size: 18px; font-weight: 600;"><a href="mailto:loquens.bordeauxinp@gmail.com" style="color:var(--accent)">loquens.bordeauxinp@gmail.com</a></p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 25px;">
-                            <a class="btn btn-ghost" href="mailto:loquens.bordeauxinp@gmail.com?subject=Rejoindre%20le%20club%20Loquens">Rejoindre</a>
-                            <a class="btn btn-ghost" href="mailto:loquens.bordeauxinp@gmail.com?subject=Demande%20Infos%20National">Infos 2027</a>
-                        </div>
+                        <p style="font-size: 18px; font-weight: 600;"><a class="js-mail" data-u="loquens.bordeauxinp" data-d="gmail.com" href="#contact">Afficher l'adresse e-mail</a></p>
+                        <a class="btn btn-ghost" href="https://forms.gle/eWAu1jMjXdPn2yk27" target="_blank" rel="noopener" style="width:100%; margin-top: 25px;">Rejoindre</a>
                     </div>
                     <div class="card">
-                        <h3>Réseau LinkedIn</h3>
-                        <p>Suivez l’actualité et les annonces de l’événement national.</p>
-                        <a class="btn btn-primary" href="https://www.linkedin.com/company/loquens-inpact/" target="_blank" style="width:100%; margin-top: 10px;">Suivre sur LinkedIn</a>
+                        <h3>Nos réseaux</h3>
+                        <p>Suivez l’actualité, les annonces et les prestations des candidats.</p>
+                        <a class="btn btn-primary" href="https://www.linkedin.com/company/loquens-inpact/" target="_blank" rel="noopener" style="width:100%; margin-top: 10px;">Suivre sur LinkedIn</a>
+                        <a class="btn btn-ghost" href="https://www.instagram.com/loquens_inpact/" target="_blank" rel="noopener" style="width:100%; margin-top: 10px;">Suivre sur Instagram</a>
                     </div>
                 </div>
             </div>
@@ -404,8 +433,49 @@
             <img src="assets/img/Loquens.png" alt="Logo Loquens INPact" class="footer-logo-img">
             <p>© 2026-2027 <strong>Loquens National</strong> — Porté avec fierté par Loquens INPact Bordeaux</p>
             <p style="font-size: 12px; margin-top: 10px; opacity: 0.6; font-weight: 300;">Le plus grand rassemblement d'éloquence technique de France.</p>
+            <p class="footer-links">
+                <a href="cgu.html">Mentions légales &amp; CGU</a><span>·</span>
+                <a href="rgpd.html">Politique de confidentialité</a><span>·</span>
+                <a href="https://www.linkedin.com/company/loquens-inpact/" target="_blank" rel="noopener">LinkedIn</a><span>·</span>
+                <a href="https://www.instagram.com/loquens_inpact/" target="_blank" rel="noopener">Instagram</a>
+            </p>
         </div>
     </footer>
+
+    <!-- Bandeau d'information cookies -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Information sur les cookies">
+        <p>Ce site n'utilise <strong>aucun cookie de suivi</strong>. Les statistiques de fréquentation sont anonymes et sans cookie. <a href="rgpd.html">En savoir plus</a></p>
+        <button class="btn btn-primary" id="cookieOk" type="button">Compris</button>
+    </div>
+
+    <script>
+        // --- E-mail protégé anti-spam : l'adresse n'apparaît jamais en clair dans le HTML
+        document.querySelectorAll('.js-mail').forEach(function (a) {
+            var addr = a.dataset.u + '@' + a.dataset.d;
+            a.addEventListener('click', function (e) {
+                e.preventDefault();
+                a.textContent = addr;
+                a.href = 'mailto:' + addr;
+                a.removeAttribute('data-u'); a.removeAttribute('data-d');
+                a.classList.remove('js-mail');
+                a.style.color = 'var(--accent)';
+            });
+        });
+
+        // --- Bandeau cookies : affiché une seule fois, choix mémorisé en localStorage
+        (function () {
+            var KEY = 'loquens_cookie_notice_v1';
+            var banner = document.getElementById('cookieBanner');
+            var ok = document.getElementById('cookieOk');
+            var seen = false;
+            try { seen = localStorage.getItem(KEY) === '1'; } catch (e) {}
+            if (!seen) banner.classList.add('is-visible');
+            ok.addEventListener('click', function () {
+                banner.classList.remove('is-visible');
+                try { localStorage.setItem(KEY, '1'); } catch (e) {}
+            });
+        })();
+    </script>
 
 </body>
 </html>
